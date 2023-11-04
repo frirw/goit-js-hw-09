@@ -59,3 +59,20 @@ startButton.addEventListener('click', () => {
     convertMs(date - new Date());
   }, 1000);
 });
+
+const fieldStyles = document.querySelectorAll('.field');
+const valueStyles = document.querySelectorAll('.value');
+const labelStyles = document.querySelectorAll('.label');
+
+fieldStyles.forEach(field => {
+  field.style.display = 'inline-block';
+});
+
+valueStyles.forEach(value => {
+  value.style.fontSize = '20px';
+  value.style.fontWeight = 'bold';
+});
+
+labelStyles.forEach(label => {
+  label.style.fontStyle = 'italic';
+});
