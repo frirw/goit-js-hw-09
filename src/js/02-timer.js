@@ -32,6 +32,11 @@ const dataMinutes = document.querySelector('[data-minutes]');
 const dataSeconds = document.querySelector('[data-seconds]');
 
 function convertMs(ms) {
+  if (ms <= 0) {
+    dateTimePicker.disabled = false;
+    clearInterval(timerId);
+    return { day: '00', hour: '00', minute: '00', second: '00' };
+  }
 
   const second = 1000;
   const minute = second * 60;
@@ -55,6 +60,7 @@ function addLeadingZero(value) {
 
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
+  dateTimePicker.disabled = true;
   timerId = setInterval(() => {
     convertMs(date - new Date());
   }, 1000);
